@@ -1,0 +1,10 @@
+#!/bin/sh
+
+import git:install/download.sh
+
+which ollama > /dev/null 2>&1 || {
+    _download https://ollama.ai/download/ollama-linux-$_ARCHITECTURE
+    _download_install_file $_CONF_INSTALL_BIN_PATH/ollama
+
+    _sudo chmod +x $_CONF_INSTALL_BIN_PATH/ollama
+}
